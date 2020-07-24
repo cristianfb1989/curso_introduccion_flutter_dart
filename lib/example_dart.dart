@@ -122,6 +122,41 @@ void main() {
 
   Runes iconos = Runes('\u{1F6A2} \u{1F6A4} \u{1F695}');
   print(String.fromCharCodes(iconos));
+
+  /*#####################################################*/
+  //Funciones
+  bool esPar(int numero) {
+    return numero % 2 == 0;
+  }
+
+  print('El n° 2 es par? ${esPar(2)}');
+  print('El n° 3 es par? ${esPar(3)}');
+
+  esImpar(int numero) => numero % 2 != 0;
+
+  print('El n° 2 es impar? ${esImpar(2)}');
+  print('El n° 3 es impar? ${esImpar(3)}');
+
+  /*#####################################################*/
+  //Parametros opcionales
+  mostrarNombreCompleto(nombre: 'Cristian', apellido: 'Bustos');
+  mostrarInformacionExtra('Cristian', 30, 'Cordoba');
+
+  /*#####################################################*/
+  //Funciones como parametros
+  var listaNumeros2 = [1, 2, 3, 4, 5];
+  listaNumeros2.forEach(imprimirNumero);
+
+  //funcion declarada en varible
+  var pasarMayusculas = (mensaje) => mensaje.toUpperCase();
+  print(pasarMayusculas('hola mundo'));
+
+  /*#####################################################*/
+  //Funciones Anonimas
+  var listaSistemasOperativos = ['Windows', 'MacOS', "Ubuntu"];
+  listaSistemasOperativos.forEach((elemento) {
+    print(elemento);
+  });
 }
 
 printNumero(int numero) {
@@ -133,4 +168,17 @@ conocerTipo(dynamic variable) {
     print('la variable es string');
   else
     print('la variable es de otro tipo');
+}
+
+//parametros nombrados 'named parameters'
+mostrarNombreCompleto({nombre, apellido}) {
+  print('Nombre: $nombre, Apellidos: $apellido');
+}
+
+mostrarInformacionExtra(nombre, int edad, ciudad) {
+  print('Nombre: $nombre, Edad: ${edad.toString()}, Ciudad: $ciudad');
+}
+
+void imprimirNumero(int numero) {
+  print(numero.toString());
 }
