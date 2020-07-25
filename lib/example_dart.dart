@@ -68,7 +68,7 @@ void main() {
   print('2 + 2 = ${2 + 2}');
 
   /*#####################################################*/
-  bool existe;
+  bool existe = true;
   if (existe)
     print('Existe es true');
   else
@@ -80,7 +80,8 @@ void main() {
   var listaPares = [2, 3, 5, 8];
   print(listaPares.length);
   print('Elemento de la posicion 2: ${listaPares[2]}');
-  var listImpares = const [3, 5, 7];
+  var listImpares = [3, 5, 7];
+  //var listImpares = const [3, 5, 7];
   print('Elemento de la posicion 1: ${listImpares[1]}');
 
   //modificar un elemento de la lista
@@ -155,8 +156,74 @@ void main() {
   //Funciones Anonimas
   var listaSistemasOperativos = ['Windows', 'MacOS', "Ubuntu"];
   listaSistemasOperativos.forEach((elemento) {
-    print(elemento);
+    print(
+        'Posicion: ${listaSistemasOperativos.indexOf(elemento)}, nombre: $elemento');
   });
+
+  /*#####################################################*/
+  //Condicionales
+  if (2 > 5) {
+    print('2 es mayor que 5');
+  } else if (2 > 4) {
+    print('2 es mayor que 4');
+  } else {
+    print('2 no es mayor que 4 ni mayor que 5');
+  }
+
+  /*#####################################################*/
+  //Bucles for
+
+  //For basico
+  var animales = ['perro', 'gato', 'elefante', 'tigre'];
+  for (var i = 0; i < animales.length; i++) {
+    print(animales[i]);
+  }
+
+  print('---Impresion del forEach---');
+  animales.forEach((animal) => print(animal));
+
+  print('---Impresion del forIn---');
+  for (var animal in animales) {
+    print(animal);
+  }
+
+  /*#####################################################*/
+  var alumnos2 = ['Cristian', 'Fabian', 'Leonardo', 'Abel'];
+  bool encontrado = false;
+  var i = 0;
+  while (!encontrado) {
+    if (alumnos2[i] == 'Cristian') {
+      encontrado = true;
+      print('Hemos encontrado a Cristian');
+    } else {
+      print('El alumno ${alumnos2[i]} no es Cristian. Seguimos Buscando');
+    }
+    i++;
+  }
+
+  print('--- Do-While ---');
+  i = 0;
+  encontrado = false;
+  do {
+    if (alumnos2[i] == 'Fabian') {
+      encontrado = true;
+      print('Hemos encontrado a Fabian');
+    } else {
+      print('El alumno ${alumnos2[i]} no es Fabian. Seguimos Buscando');
+    }
+    i++;
+  } while (!encontrado);
+
+  /*#####################################################*/
+  var estadoTienda = 'ABIERTA';
+  switch (estadoTienda) {
+    case 'ABIERTA':
+      print('Tienda Abierta');
+      break;
+    case 'CERRADA':
+      print('Tienda cerrada');
+      break;
+  }
 }
 
 printNumero(int numero) {
