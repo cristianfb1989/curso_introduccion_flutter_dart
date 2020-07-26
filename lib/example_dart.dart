@@ -224,6 +224,18 @@ void main() {
       print('Tienda cerrada');
       break;
   }
+
+  // Persona p = Persona('Cristian', 'Bustos');
+  // print('Nombre: ${p.nombre}, Apellidos: ${p.apellidos}');
+
+  Persona p = Persona('Cristian', 'Bustos', 30);
+  print('Nombre: ${p.nombre}, Apellidos: ${p.apellidos}, Edad: ${p.edad}');
+
+  Persona p2 = Persona.sinEdad('Leonardo', 'Bustos');
+  p2.edad = 28;
+  print('Nombre: ${p2.nombre}, Apellidos: ${p2.apellidos}, Edad: ${p2.edad}');
+
+  p.esMayor(p2);
 }
 
 printNumero(int numero) {
@@ -248,4 +260,32 @@ mostrarInformacionExtra(nombre, int edad, ciudad) {
 
 void imprimirNumero(int numero) {
   print(numero.toString());
+}
+
+class Persona {
+  String nombre, apellidos;
+  int edad;
+
+  //Suntactic Sugar
+  Persona(this.nombre, this.apellidos, this.edad);
+
+//Contructor alternativo: NamedConstuctores
+  Persona.sinEdad(String nombre, String apellido) {
+    this.nombre = nombre;
+    this.apellidos = apellidos;
+    this.edad = 0;
+  }
+
+  // Persona(String n, String a) {
+  //   this.apellidos = a;
+  //   this.nombre = n;
+  // }
+
+  void esMayor(Persona p) {
+    if (this.edad > p.edad) {
+      print('${this.nombre} es mayor que ${p.nombre}');
+    } else {
+      print('${this.nombre} es menor que ${p.nombre}');
+    }
+  }
 }
